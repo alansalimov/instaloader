@@ -52,7 +52,7 @@ class InstaloaderContext:
     class :class:`Instaloader`.
     """
 
-    def __init__(self, sleep: bool = True, quiet: bool = False, user_agent: Optional[str] = None,
+    def __init__(self, sleep: bool = True, graphql_page_length: int = 50, quiet: bool = False, user_agent: Optional[str] = None,
                  max_connection_attempts: int = 3, request_timeout: Optional[float] = None,
                  rate_controller: Optional[Callable[["InstaloaderContext"], "RateController"]] = None):
 
@@ -63,7 +63,7 @@ class InstaloaderContext:
         self.sleep = sleep
         self.quiet = quiet
         self.max_connection_attempts = max_connection_attempts
-        self._graphql_page_length = 50
+        self._graphql_page_length = graphql_page_length
         self._root_rhx_gis = None
         self.two_factor_auth_pending = None
 

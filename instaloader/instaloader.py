@@ -179,13 +179,14 @@ class Instaloader:
                  post_metadata_txt_pattern: str = None,
                  storyitem_metadata_txt_pattern: str = None,
                  max_connection_attempts: int = 3,
+                 graphql_page_length: int = 50,
                  request_timeout: Optional[float] = None,
                  rate_controller: Optional[Callable[[InstaloaderContext], RateController]] = None,
                  resume_prefix: Optional[str] = "iterator",
                  check_resume_bbd: bool = True):
 
-        self.context = InstaloaderContext(sleep, quiet, user_agent, max_connection_attempts,
-                                          request_timeout, rate_controller)
+        self.context = InstaloaderContext(sleep=sleep, quiet=quiet, user_agent=user_agent,  max_connection_attempts=max_connection_attempts,
+                                          request_timeout=request_timeout,  rate_controller=rate_controller, graphql_page_length=graphql_page_length)
 
         # configuration parameters
         self.dirname_pattern = dirname_pattern or "{target}"
